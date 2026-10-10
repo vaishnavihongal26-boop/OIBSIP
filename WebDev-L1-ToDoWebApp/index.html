@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - To-Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">✓</div>
+
+                <div>
+                    <h2>TaskFlow</h2>
+                    <p>Small steps. Big dreams.</p>
+                </div>
+            </div>
+
+
+            <nav class="navigation">
+
+                <button class="nav-item active">
+                    <span>⌂</span>
+                    Home
+                </button>
+
+                <button class="nav-item">
+                    <span>☷</span>
+                    All Tasks
+
+                    <span class="nav-count" id="allTaskCount">
+                        0
+                    </span>
+                </button>
+
+                <button class="nav-item">
+                    <span>✓</span>
+                    Completed
+
+                    <span class="nav-count" id="sidebarCompletedCount">
+                        0
+                    </span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-message">
+
+                <div class="sparkle">✦</div>
+
+                <p>
+                    Better tasks today,<br>
+                    brighter tomorrow.
+                </p>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="profile-icon">
+                    V
+                </div>
+
+                <span>Vaishnavi</span>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="top-header">
+
+                <div>
+
+                    <p class="greeting" id="greeting"></p>
+
+                    <h1>
+                        My <span>To-Do List</span>
+                    </h1>
+
+                    <p class="subtitle">
+                        Organize your day, one task at a time.
+                    </p>
+
+                </div>
+
+
+                <div class="date-box">
+                    📅
+                    <span id="currentDate"></span>
+                </div>
+
+            </header>
+
+
+            <!-- ADD TASK -->
+            <section class="add-task-card">
+
+                <div class="plus-icon">
+                    +
+                </div>
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What's your next task?"
+                >
+
+                <button id="addTaskBtn">
+                    Add Task →
+                </button>
+
+            </section>
+
+
+            <!-- TASK AREA -->
+            <div class="task-columns">
+
+
+                <!-- PENDING -->
+                <section class="task-panel pending-panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon pending-icon">
+                                ◷
+                            </div>
+
+                            <h2>Pending Tasks</h2>
+
+                            <span class="small-count" id="pendingCount">
+                                0
+                            </span>
+
+                        </div>
+
+                        <span class="count-label">
+                            0 pending
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="pendingTasks"
+                        class="task-list"
+                    >
+
+                    </div>
+
+                </section>
+
+
+                <!-- COMPLETED -->
+                <section class="task-panel completed-panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <div class="panel-icon completed-icon">
+                                ✓
+                            </div>
+
+                            <h2>Completed Tasks</h2>
+
+                            <span class="small-count completed-count" id="completedCount">
+                                0
+                            </span>
+
+                        </div>
+
+                        <span class="count-label completed-label">
+                            0 completed
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="completedTasks"
+                        class="task-list"
+                    >
+
+                    </div>
+
+
+                    <div
+                        id="completedEmpty"
+                        class="completed-empty"
+                    >
+
+                        <div class="empty-check">
+                            ✓
+                        </div>
+
+                        <h3>No completed tasks yet.</h3>
+
+                        <p>Great things take time!</p>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!-- FOOTER -->
+            <footer class="footer-message">
+                ✦ Progress looks good on you.
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

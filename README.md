@@ -1,75 +1,70 @@
 # Login Authentication System
 
-**Track:** Web Development | **Task 4** | Oasis Infobyte SIP  
+**Track:** Web Development | **Level 2 — Task 4** | Oasis Infobyte SIP  
 **Author:** VAISHNAVI MAHADEV HONGAL
 
-A full-stack authentication system with registration, login, a protected dashboard and logout.
+A full-stack authentication system with registration, login, a protected dashboard, and logout.
 
 ## Features
 
 - Registration with email and password
-- Password rules: minimum 8 characters and at least 1 number
-- Duplicate email check with a clear error message
-- Login with a generic error ("Invalid email or password.") that never reveals which field was wrong
-- Protected dashboard: visiting `/dashboard` without a session redirects to the login page
-- Logout button that destroys the session and redirects to login
-- Passwords hashed with bcrypt, never stored in plain text
-- Form validation on both pages (no empty submissions)
-- Login rate limit: 5 failed attempts, then a 15 minute wait
-- "Remember me" keeps the session for 7 days
-- Show/hide password button
+- Password validation: minimum 8 characters and at least 1 number
+- Duplicate email detection
+- Secure login with a generic error message
+- Protected dashboard for authenticated users
+- Logout that destroys the session
+- Password hashing with bcrypt
+- Login rate limiting
+- Remember me option
+- Show/hide password
 - Responsive design
 
-## Tech stack
+## Tech Stack
 
-Node.js, Express, SQLite (better-sqlite3), bcrypt, express-session, helmet, express-rate-limit, HTML, CSS and JavaScript.
+Node.js, Express, SQLite, bcrypt, express-session, Helmet, express-rate-limit, HTML, CSS, and JavaScript.
 
-## How to run
+## How to Run
 
-1. Install Node.js (version 18 or higher).
-2. Install the packages:
+1. Install Node.js.
+2. Open a terminal in the project folder.
+3. Install dependencies:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Copy `.env.example` to a new file named `.env` and set your own `SESSION_SECRET`.
+4. Create a `.env` file using `.env.example` and set your own session secret.
+5. Start the application:
 
-4. Start the server:
+   ```bash
+   npm start
+   ```
 
-```bash
-npm start
-```
+6. Open http://localhost:3000 in your browser.
 
-5. Open http://localhost:3000
+## Project Structure
 
-## Project structure
+- `server.js` — Server setup and protected routes
+- `db.js` — Database operations
+- `routes/auth.js` — Authentication routes
+- `middleware/requireAuth.js` — Authentication protection
+- `public/` — Login, registration, CSS, and JavaScript files
+- `views/dashboard.html` — Dashboard page
+- `screenshots/` — Project screenshots
 
-```text
-server.js                  server setup, sessions, protected route
-db.js                      SQLite database and queries
-routes/auth.js             register, login, me, logout
-middleware/requireAuth.js  blocks users who are not logged in
-public/                    login and register pages, CSS, JavaScript
-views/dashboard.html       protected page, served only after login
-```
+## Security
 
-## Security notes
-
-- Passwords are hashed with bcrypt before saving.
-- SQL queries use placeholders, which protects against SQL injection.
-- Sessions live on the server. The cookie is `httpOnly`, so page scripts cannot read it.
-- Helmet adds secure HTTP headers.
-- The login route is rate limited to slow down password guessing.
-- The email column is `UNIQUE` in the database.
-- For production you would also use HTTPS, a `secure` cookie, and a persistent session store.
+- Passwords are hashed with bcrypt.
+- Parameterized SQL queries help prevent SQL injection.
+- Sessions use HTTP-only cookies.
+- Helmet adds security-related HTTP headers.
+- Login attempts are rate limited.
+- Email addresses are unique in the database.
 
 ## Screenshots
 
-| Register | Login |
-|---|---|
-| ![Register](screenshots/register.png) | ![Login](screenshots/login.png) |
+Add your actual project screenshots to the `screenshots/` folder and link them here once their filenames are confirmed.
 
-| Dashboard | Login error |
-|---|---|
-| ![Dashboard](screenshots/dashboard.png) | ![Error](screenshots/login-error.png) |
+## Author
+
+VAISHNAVI MAHADEV HONGAL
