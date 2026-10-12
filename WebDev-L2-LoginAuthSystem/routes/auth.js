@@ -4,14 +4,6 @@ const { findUserByEmail, createUser } = require("../db");
 const { requireApi } = require("../middleware/requireAuth");
 
 const router = express.Router();
-const rateLimit = require("express-rate-limit");
-
-const loginLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  limit: 5,
-  skipSuccessfulRequests: true,
-  message: { error: "Too many failed attempts. Try again in 15 minutes." },
-});
 
 router.post("/register", async (req, res) => {
   const email = (req.body.email || "").trim().toLowerCase();
@@ -39,7 +31,7 @@ router.post("/register", async (req, res) => {
   res.status(201).json({ message: "Account created." });
 });
 
-router.post("/login", loginLimiter, async (req, res) => {
+router.post("/login", async (req, res) => {
   const email = (req.body.email || "").trim().toLowerCase();
   const password = req.body.password || "";
 
@@ -56,9 +48,6 @@ router.post("/login", loginLimiter, async (req, res) => {
 
   req.session.userId = user.id;
   req.session.email = user.email;
-    if (req.body.remember) {
-    req.session.cookie.maxAge = 7 * 24 * 60 * 60 * 1000;
-  }
 
   res.json({ message: "Login successful." });
 });
