@@ -3,14 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+  <title>Dashboard | SecureApp</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Dashboard</h1>
-  <p>Welcome, <strong id="email"></strong></p>
-  <p>You are logged in. Only logged-in users can see this page.</p>
+  <header class="topbar">
+    <a class="brand" href="/dashboard">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#5558e3"/><rect x="9" y="14" width="14" height="10" rx="2" fill="#fff"/><path d="M12 14v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+      SecureApp
+    </a>
+  </header>
 
-  <button id="logout">Logout</button>
+  <div class="page single">
+    <main class="card">
+      <h1>Dashboard</h1>
+      <p class="sub">You are logged in. Only logged-in users can see this page.</p>
+
+      <div class="who">
+        <span>Signed in as</span>
+        <strong id="email"></strong>
+      </div>
+
+      <button id="logout" class="btn secondary">Log out</button>
+    </main>
+  </div>
 
   <script src="/js/dashboard.js"></script>
 </body>

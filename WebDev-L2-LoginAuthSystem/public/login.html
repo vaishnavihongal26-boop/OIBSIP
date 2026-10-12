@@ -3,27 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Log in | SecureApp</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>Log in</h1>
+  <header class="topbar">
+    <a class="brand" href="/login.html">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#5558e3"/><rect x="9" y="14" width="14" height="10" rx="2" fill="#fff"/><path d="M12 14v-3a4 4 0 0 1 8 0v3" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+      SecureApp
+    </a>
+    <p>Don't have an account? <a href="/register.html">Sign up</a></p>
+  </header>
 
-  <form id="form">
-    <p>
-      <label>Email<br>
-        <input id="email" type="email">
-      </label>
-    </p>
-    <p>
-      <label>Password<br>
-        <input id="password" type="password">
-      </label>
-    </p>
-    <button type="submit">Login</button>
-  </form>
+  <div class="page">
+    <section class="hero">
+      <h2>Welcome back!</h2>
+      <p>Sign in to your account to continue and access your dashboard.</p>
 
-  <p id="message"></p>
-  <p>No account yet? <a href="/register.html">Register</a></p>
+      <svg class="shield" viewBox="0 0 120 140" aria-hidden="true">
+        <path d="M60 8 L108 26 V68 C108 96 88 118 60 132 C32 118 12 96 12 68 V26 Z" fill="#6c6fe8"/>
+        <rect x="40" y="62" width="40" height="32" rx="6" fill="#fff"/>
+        <path d="M48 62 V52 a12 12 0 0 1 24 0 V62" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="60" cy="78" r="4" fill="#6c6fe8"/>
+      </svg>
+
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
+        <div><strong>Secure authentication</strong><span>Passwords are hashed and never stored in plain text.</span></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <div><strong>Fast and reliable</strong><span>Get access in seconds.</span></div>
+      </div>
+      <div class="feature">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div>
+        <div><strong>Protected sessions</strong><span>Only logged-in users can open the dashboard.</span></div>
+      </div>
+    </section>
+
+    <main class="card">
+      <h1>Log in</h1>
+      <p class="sub">Enter your email and password to continue.</p>
+
+      <form id="form" novalidate>
+        <label for="email">Email address</label>
+        <div class="field">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+
+        <label for="password">Password</label>
+        <div class="field">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+          <input id="password" type="password" placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" id="toggle" class="toggle" aria-label="Show or hide password">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+
+        <label class="check"><input id="remember" type="checkbox"> Remember me</label>
+
+        <div id="message" class="msg" role="alert"></div>
+
+        <button type="submit" class="btn">
+          Log in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+
+      <p class="switch">New here? <a href="/register.html">Create an account</a></p>
+    </main>
+  </div>
 
   <script src="/js/login.js"></script>
 </body>
